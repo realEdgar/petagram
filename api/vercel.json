@@ -1,13 +1,13 @@
 {
     "version": 2,
-    "name": "petgram-server",
+    "name": "petgram-server-dev-eddie",
     "alias": [
-      "petgram-api"
+      "petgram-api-dev-eddie"
     ],
     "builds": [
       {
         "src": "index.js",
-        "use": "@now/node"
+        "use": "@vercel/node"
       }
     ],
     "routes": [
