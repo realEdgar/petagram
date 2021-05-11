@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { PhotoCard } from '../PhotoCard/index'
 import { List, ListItem } from './styles'
+import Lista from '../../../api/db.json'
 
 export const ListOfPhotoCard = () => {
+  const [photos, setPhotos] = useState([])
+  useEffect(() => {
+    setPhotos(Lista.photos)
+  }, [])
   return (
     <List>
       {
-        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(photo => {
+        photos.map(photo => {
           return (
-            <ListItem key={photo}><PhotoCard /></ListItem>
+            <ListItem key={photo.id}>
+              <PhotoCard {...photo} />
+            </ListItem>
           )
         })
       }
