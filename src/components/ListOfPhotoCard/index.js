@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { PhotoCard } from '../PhotoCard/index'
-import { List, ListItem } from './styles'
+import { List } from './styles'
 import Lista from '../../../api/db.json'
 
 export const ListOfPhotoCard = () => {
@@ -12,11 +12,7 @@ export const ListOfPhotoCard = () => {
     <List>
       {
         photos.map(photo => {
-          return (
-            <ListItem key={photo.id}>
-              <PhotoCard {...photo} />
-            </ListItem>
-          )
+          return <PhotoCard key={photo.id} {...photo} />
         })
       }
     </List>
