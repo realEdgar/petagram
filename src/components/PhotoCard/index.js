@@ -1,32 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import { ImgWrapper, Img, Button, Article } from './styles'
-import { MdFavoriteBorder } from 'react-icons/md'
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { useNearScreen } from '../../hooks/useNearScreen'
 
-export const PhotoCard = ({ id, src }) => {
-  const [like, setLike] = useState(0)
-  const [show, setShow] = useState(false)
-  const referenciaDOM = useRef(null)
+export const PhotoCard = props => {
+  const { id, src, likes } = props
+  const [show, domReference] = useNearScreen(false)
+  const key = `like-${id}`
+  const [liked, setLiked] = useLocalStorage(key, false)
 
-  useEffect(() => {
-    Promise.resolve(
-      typeof window.IntersectionObserver !== 'undefined'
-        ? window.IntersectionObserver
-        : import('intersection-observer')
-    ).then(() => {
-      const observer = new window.IntersectionObserver((entries) => {
-        const { isIntersecting } = entries[0]
-        console.log(isIntersecting)
-        if (isIntersecting) {
-          setShow(true)
-          observer.disconnect()
-        }
-      })
-      observer.observe(referenciaDOM.current)
-    })
-  }, [referenciaDOM])
+  const Icon = liked ? MdFavorite : MdFavoriteBorder
 
   return (
-    <Article ref={referenciaDOM}>
+    <Article ref={domReference}>
       {show && (
         <>
           <a href={`/detail/${id}`}>
@@ -34,8 +21,8 @@ export const PhotoCard = ({ id, src }) => {
               <Img src={src} alt='PetImage' />
             </ImgWrapper>
           </a>
-          <Button onClick={() => setLike(like + 1)}>
-            <MdFavoriteBorder size='20px' /> {like} likes!
+          <Button onClick={() => setLiked(!liked)}>
+            <Icon size='20px' /> {likes} likes!
           </Button>
         </>
       )}

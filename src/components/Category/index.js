@@ -3,10 +3,12 @@ import React from 'react'
 import { Anchor, Image } from './styles'
 
 export const Category = props => {
+  const { path, cover, emoji } = props
+
   return (
-    <Anchor href={props.path}>
-      <Image src={props.cover} />
-      {props.emoji}
+    <Anchor href={path}>
+      <Image src={cover} />
+      {emoji}
     </Anchor>
   )
 }
