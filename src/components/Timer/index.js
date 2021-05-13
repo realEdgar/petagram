@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Title, Time, Element } from './styles'
+import { Container, Time, Element, Span } from './styles'
 
 export const Timer = () => {
   const [second, setSeconds] = useState(0)
@@ -22,10 +22,9 @@ export const Timer = () => {
 
   return (
     <Container>
-      <Title>Time on this page</Title>
       <Time>
-        <Element>{hours}</Element>:
-        <Element>{minutes}</Element>:
+        <Element>{hours}</Element><Element>:</Element>
+        <Element>{minutes}</Element><Element>:</Element>
         <Element>{second}</Element>
       </Time>
     </Container>

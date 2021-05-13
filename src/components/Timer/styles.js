@@ -1,26 +1,26 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-`
-
-export const Title = styled.h2`
-  font-size: 16px;
 `
 
 export const Time = styled.section`
+  height: 16px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 `
 
 export const Element = styled.p`
-  width: 30px;
+  width: 15px;
+  height: 16px;
+  padding: 3px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  font-family: courier;
   font-weight: bold;
 `
