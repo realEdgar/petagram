@@ -1,13 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 
 import { App } from './App'
 
 const client = new ApolloClient({
-  url: 'URL_DEL_BACKEND'
+  url: 'URL_DEL_BACKEND',
+  cache: new InMemoryCache()
 })
 
 ReactDOM.render(
