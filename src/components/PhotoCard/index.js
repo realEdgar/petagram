@@ -1,16 +1,11 @@
 import React from 'react'
-import { ImgWrapper, Img, Button, Article } from './styles'
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { FavButton } from '../FavButton/index'
+import { ImgWrapper, Img, Article } from './styles'
 import { useNearScreen } from '../../hooks/useNearScreen'
 
 export const PhotoCard = props => {
-  const { id, src, likes } = props
+  const { id, src } = props
   const [show, domReference] = useNearScreen(false)
-  const key = `like-${id}`
-  const [liked, setLiked] = useLocalStorage(key, false)
-
-  const Icon = liked ? MdFavorite : MdFavoriteBorder
 
   return (
     <Article ref={domReference}>
@@ -21,9 +16,7 @@ export const PhotoCard = props => {
               <Img src={src} alt='PetImage' />
             </ImgWrapper>
           </a>
-          <Button onClick={() => setLiked(!liked)}>
-            <Icon size='20px' /> {likes} likes!
-          </Button>
+          <FavButton {...props} />
         </>
       )}
     </Article>
