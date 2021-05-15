@@ -7,7 +7,7 @@ export const Header = styled.header`
 `
 
 export const Svg = styled.svg`
-  width: 80%;
+  width: 70%;
   height: 80px;
   margin: 0;
 `
