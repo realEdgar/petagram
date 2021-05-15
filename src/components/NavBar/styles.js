@@ -26,4 +26,18 @@ export const Link = styled(LinkRouter)`
   justify-content: center;
   text-decoration: none;
   width: 100%;
+  
+  &[aria-current] {
+    color: #000;
+    border-top: 2px solid #000;
+
+    &:after {
+      content: '°';
+      position: absolute;
+      bottom: -10px;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+  }
 `
