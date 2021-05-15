@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Time, Element, Span } from './styles'
+import { Container, Time, Element } from './styles'
 
 export const Timer = () => {
   const [second, setSeconds] = useState(0)
