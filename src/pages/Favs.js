@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { Favorites } from '../components/Favoritos/index'
+
 export const Favs = () => {
   return (
-    <h1>List of favorites is here</h1>
+    <Favorites />
   )
 }
